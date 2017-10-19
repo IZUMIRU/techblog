@@ -21,7 +21,8 @@ class Scraping
     url = link
     # image_url = page.at('.pictBox img')[:src]
     
-    blog = Blog.create(image: image, title: title, url: url)
+    # blog = Blog.create(image: image, title: title, url: url)
+    blog = Blog.create(title: title, url: url)
     blog.save
   end
 end
