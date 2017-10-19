@@ -13,7 +13,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   case Rails.env
     when 'production'
-      storage :fog
+      # storage :fog
+      storage :file
     when 'development'
       storage :file
   end
