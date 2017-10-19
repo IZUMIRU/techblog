@@ -91,6 +91,31 @@ class Scraping
     blog = Blog.create(company: "住まいカンパニー", title: title, url: link)
   end
 
+  # ジョブス
+  # def self.jobs
+  #   links = []
+  #   agent = Mechanize.new
+  #   current_page = agent.get("https://techblog.recruitjobs.net/")
+  #   elements = current_page.search('.thumb-holder a')
+  #   elements.each do |ele|
+  #     links << ele.get_attribute('href')
+  #   end
+    
+  #   links.each do |link|
+  #     get_jobs(link)
+  #   end
+  # end
+
+  # def self.get_jobs(link)
+  #   agent = Mechanize.new
+  #   page = agent.get(link)
+  #   title = page.at('.h1-wrapper').inner_text.strip
+
+  #   blog = Blog.create(company: "ジョブズ", title: title, url: link)
+  # end
+
+
+
 
 
 
