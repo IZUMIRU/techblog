@@ -1,6 +1,6 @@
 class Scraping
   # ライフスタイル
-  def self.recruit_lifestyle
+  def self.lifestyle
     links = []
     agent = Mechanize.new
     current_page = agent.get("http://engineer.recruit-lifestyle.co.jp/techblog/")
@@ -56,16 +56,39 @@ class Scraping
     end
     
     links.each do |link|
-      get_marketing_partners(link)
+      get_technologies(link)
     end
   end
 
-  def self.get_marketing_partners(link)
+  def self.get_technologies(link)
     agent = Mechanize.new
     page = agent.get(link)
     title = page.at('.article-title').inner_text.strip
 
     blog = Blog.create(company: "テクノロジーズ", title: title, url: link)
+  end
+
+  # 住まいカンパニー
+  def self.sumai_company
+    links = []
+    agent = Mechanize.new
+    current_page = agent.get("http://tech.recruit-sumai.co.jp/")
+    elements = current_page.search('.entry-title a')
+    elements.each do |ele|
+      links << ele.get_attribute('href')
+    end
+    
+    links.each do |link|
+      get_sumai_company(link)
+    end
+  end
+
+  def self.get_sumai_company(link)
+    agent = Mechanize.new
+    page = agent.get(link)
+    title = page.at('.bookmark').inner_text.strip
+
+    blog = Blog.create(company: "住まいカンパニー", title: title, url: link)
   end
 
 
