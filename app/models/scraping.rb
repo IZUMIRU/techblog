@@ -45,6 +45,28 @@ class Scraping
     blog = Blog.create(company: "マーケティングパートナーズ", title: title, url: link)
   end
 
+  # テクノロジーズ
+  def self.technologies
+    links = []
+    agent = Mechanize.new
+    current_page = agent.get("https://recruit-tech.co.jp/blog/")
+    elements = current_page.search('.article-left a')
+    elements.each do |ele|
+      links << ele.get_attribute('href')
+    end
+    
+    links.each do |link|
+      get_marketing_partners(link)
+    end
+  end
+
+  def self.get_marketing_partners(link)
+    agent = Mechanize.new
+    page = agent.get(link)
+    title = page.at('.article-title').inner_text.strip
+
+    blog = Blog.create(company: "テクノロジーズ", title: title, url: link)
+  end
 
 
 
