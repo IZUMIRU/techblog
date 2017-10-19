@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  mount_uploader :image, ImageUploader
 
   # GET /blogs
   # GET /blogs.json
