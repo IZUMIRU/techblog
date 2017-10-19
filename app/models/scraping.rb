@@ -1,4 +1,5 @@
 class Scraping
+  # ライフスタイル
   def self.recruit_lifestyle
     links = []
     agent = Mechanize.new
@@ -9,27 +10,45 @@ class Scraping
     end
     
     links.each do |link|
-      get_product('http://engineer.recruit-lifestyle.co.jp' + link)
+      get_lifestyle('http://engineer.recruit-lifestyle.co.jp' + link)
     end
   end
 
-  def self.get_product(link)
+  def self.get_lifestyle(link)
     agent = Mechanize.new
     page = agent.get(link)
-    # image = page.at('.rls-p-eyecatch rls-p-eyecatch__article')[:url]
     title = page.at('.rls-a-article__title').inner_text.strip
-    url = link
-    # image_url = page.at('.pictBox img')[:src]
-    
-    # blog = Blog.create(image: image, title: title, url: url)
-    blog = Blog.create(title: title, url: url)
-    blog.save
-  end
-end
 
-    # images = page.search('.rls-box01__image')
-    # images.each do |image|
-    #   recruit_lifestyle_image = 'http://engineer.recruit-lifestyle.co.jp' + image.get_attribute('src')
-    #   blog = Blog.new(image: recruit_lifestyle_image)
-    #   blog.save
-    # end
+    blog = Blog.create(company: "ライフスタイル", title: title, url: link)
+  end
+
+  # マーケティングパートナーズ
+  def self.marketing_partners
+    links = []
+    agent = Mechanize.new
+    current_page = agent.get("https://tech.recruit-mp.co.jp/")
+    elements = current_page.search('.widget__title a')
+    elements.each do |ele|
+      links << ele.get_attribute('href')
+    end
+    
+    links.each do |link|
+      get_marketing_partners(link)
+    end
+  end
+
+  def self.get_marketing_partners(link)
+    agent = Mechanize.new
+    page = agent.get(link)
+    title = page.at('#article-title').inner_text.strip
+
+    blog = Blog.create(company: "マーケティングパートナーズ", title: title, url: link)
+  end
+
+
+
+
+
+
+
+end
