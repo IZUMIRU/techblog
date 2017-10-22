@@ -102,16 +102,18 @@ class Scraping
     end
     
     links.each do |link|
-      get_jobs(link)
+      if !Blog.find_by(url: link).present? && !link.include?("category")
+        get_jobs(link)
+      end
     end
   end
 
   def self.get_jobs(link)
     agent = Mechanize.new
     page = agent.get(link)
-    # title = page.at('.h1-wrapper').inner_text.strip
+    title = page.at('.h1-wrapper').inner_text.strip
 
-    Blog.create(company: "ジョブズ", url: link)
+    Blog.create(company: "ジョブズ", title: title, url: link)
   end
 
 
