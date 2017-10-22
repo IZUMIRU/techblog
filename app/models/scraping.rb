@@ -1,12 +1,14 @@
 class Scraping
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   # 1.リクルートジョブス
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   def self.jobs
     links = []
     agent = Mechanize.new
     current_page = agent.get("https://techblog.recruitjobs.net")
     elements = current_page.search('.thumb-holder a')
     elements.each do |ele|
-      links << ele.get_attribute('href')
+      links << ele[:href]
     end
     
     links.each do |link|
@@ -20,18 +22,38 @@ class Scraping
     agent = Mechanize.new
     page = agent.get(link)
     title = page.at('.h1-wrapper').inner_text.strip
+    # image = page.at('img').include?("https://rjb2-techblog.s3.amazonaws.com")
+    postday = page.at('.pull-left').inner_text.strip.split(" ").first
+    image = page.search('.post-content img')[2][:src].first
 
-    Blog.create(company: "リクルートジョブズ", title: title, url: link)
+    puts image
+
+    # page_images.each do |page_image|
+    #   images << page_image[:src] if page_image[:src].include?("https://rjb2-techblog.s3.amazonaws.com")
+    # end
+    # # image = images[4]
+
+    # puts images[0..100]
+
+    # images.each do |image|
+      # Blog.create(company: "リクルートジョブズ", url: link, title: title, image: image, postday: postday)
+    # end
+
+    
+
+    
   end
 
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   # 2.リクルートライフスタイル
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   def self.lifestyle
     links = []
     agent = Mechanize.new
     current_page = agent.get("http://engineer.recruit-lifestyle.co.jp/techblog/")
     elements = current_page.search('.rls-box01')
     elements.each do |ele|
-      links << ele.get_attribute('href')
+      links << ele[:href]
     end
     
     links.each do |link|
@@ -47,14 +69,16 @@ class Scraping
     Blog.create(company: "リクルートライフスタイル", title: title, url: link)
   end
 
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   # 3.リクルート住まいカンパニー
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   def self.sumai_company
     links = []
     agent = Mechanize.new
     current_page = agent.get("http://tech.recruit-sumai.co.jp")
     elements = current_page.search('.entry-title a')
     elements.each do |ele|
-      links << ele.get_attribute('href')
+      links << ele[:href]
     end
     
     links.each do |link|
@@ -70,14 +94,16 @@ class Scraping
     Blog.create(company: "リクルート住まいカンパニー", title: title, url: link)
   end
 
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   # 4.リクルートマーケティングパートナーズ
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   def self.marketing_partners
     links = []
     agent = Mechanize.new
     current_page = agent.get("https://tech.recruit-mp.co.jp")
     elements = current_page.search('.widget__title a')
     elements.each do |ele|
-      links << ele.get_attribute('href')
+      links << ele[:href]
     end
     
     links.each do |link|
@@ -93,14 +119,16 @@ class Scraping
     Blog.create(company: "リクルートマーケティングパートナーズ", title: title, url: link)
   end
 
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   # 5.テクノロジーズ
+  # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
   def self.technologies
     links = []
     agent = Mechanize.new
     current_page = agent.get("https://recruit-tech.co.jp/blog/")
     elements = current_page.search('.article-left a')
     elements.each do |ele|
-      links << ele.get_attribute('href')
+      links << ele[:href]
     end
     
     links.each do |link|
