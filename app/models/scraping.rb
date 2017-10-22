@@ -22,26 +22,10 @@ class Scraping
     agent = Mechanize.new
     page = agent.get(link)
     title = page.at('.h1-wrapper').inner_text.strip
-    # image = page.at('img').include?("https://rjb2-techblog.s3.amazonaws.com")
+    image = page.search('.post-content img')[2][:src]
     postday = page.at('.pull-left').inner_text.strip.split(" ").first
-    image = page.search('.post-content img')[2][:src].first
 
-    puts image
-
-    # page_images.each do |page_image|
-    #   images << page_image[:src] if page_image[:src].include?("https://rjb2-techblog.s3.amazonaws.com")
-    # end
-    # # image = images[4]
-
-    # puts images[0..100]
-
-    # images.each do |image|
-      # Blog.create(company: "リクルートジョブズ", url: link, title: title, image: image, postday: postday)
-    # end
-
-    
-
-    
+    Blog.create(company: "リクルートジョブズ", url: link, title: title, image: image, postday: postday)
   end
 
   # ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー
