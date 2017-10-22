@@ -1,10 +1,5 @@
 class Scraping
-  # 人材メディア・派遣
-  ## 就職・転職
-  ### キャリア
-
-
-  ### ジョブス
+  # 1.リクルートジョブス
   def self.jobs
     links = []
     agent = Mechanize.new
@@ -26,23 +21,10 @@ class Scraping
     page = agent.get(link)
     title = page.at('.h1-wrapper').inner_text.strip
 
-    Blog.create(company: "ジョブズ", title: title, url: link)
+    Blog.create(company: "リクルートジョブズ", title: title, url: link)
   end
 
-  ## 人材派遣
-  ### スタッフィング
-
-
-  ### スタッフサービス・ホールディングス
-
-
-  ## 人材・組織開発
-  ### マネジメントソリューションズ
-
-
-  # 販促メディア
-  ## 日常消費
-  ### ライフスタイル
+  # 2.リクルートライフスタイル
   def self.lifestyle
     links = []
     agent = Mechanize.new
@@ -62,11 +44,10 @@ class Scraping
     page = agent.get(link)
     title = page.at('.rls-a-article__title').inner_text.strip
 
-    Blog.create(company: "ライフスタイル", title: title, url: link)
+    Blog.create(company: "リクルートライフスタイル", title: title, url: link)
   end
 
-  ## ライフイベント
-  ### 住まいカンパニー
+  # 3.リクルート住まいカンパニー
   def self.sumai_company
     links = []
     agent = Mechanize.new
@@ -86,10 +67,10 @@ class Scraping
     page = agent.get(link)
     title = page.at('.bookmark').inner_text.strip
 
-    Blog.create(company: "住まいカンパニー", title: title, url: link)
+    Blog.create(company: "リクルート住まいカンパニー", title: title, url: link)
   end
 
-  ### マーケティングパートナーズ
+  # 4.リクルートマーケティングパートナーズ
   def self.marketing_partners
     links = []
     agent = Mechanize.new
@@ -109,22 +90,10 @@ class Scraping
     page = agent.get(link)
     title = page.at('#article-title').inner_text.strip
 
-    Blog.create(company: "マーケティングパートナーズ", title: title, url: link)
+    Blog.create(company: "リクルートマーケティングパートナーズ", title: title, url: link)
   end
 
-  # 横断機能
-  ## 経営推進
-  ### アドミニストレーション
-
-
-  ### ホールディングス
-
-
-  ## 事業推進
-  ### コミュニケーションズ
-
-
-  ### テクノロジーズ
+  # 5.テクノロジーズ
   def self.technologies
     links = []
     agent = Mechanize.new
@@ -144,20 +113,6 @@ class Scraping
     page = agent.get(link)
     title = page.at('.article-title').inner_text.strip
 
-    Blog.create(company: "テクノロジーズ", title: title, url: link)
+    Blog.create(company: "リクルートテクノロジーズ", title: title, url: link)
   end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end
