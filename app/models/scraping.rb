@@ -19,14 +19,14 @@ class Scraping
     page = agent.get(link)
     title = page.at('.rls-a-article__title').inner_text.strip
 
-    blog = Blog.create(company: "ライフスタイル", title: title, url: link)
+    Blog.create(company: "ライフスタイル", title: title, url: link)
   end
 
   # マーケティングパートナーズ
   def self.marketing_partners
     links = []
     agent = Mechanize.new
-    current_page = agent.get("https://tech.recruit-mp.co.jp/")
+    current_page = agent.get("https://tech.recruit-mp.co.jp")
     elements = current_page.search('.widget__title a')
     elements.each do |ele|
       links << ele.get_attribute('href')
@@ -42,7 +42,7 @@ class Scraping
     page = agent.get(link)
     title = page.at('#article-title').inner_text.strip
 
-    blog = Blog.create(company: "マーケティングパートナーズ", title: title, url: link)
+    Blog.create(company: "マーケティングパートナーズ", title: title, url: link)
   end
 
   # テクノロジーズ
@@ -65,14 +65,14 @@ class Scraping
     page = agent.get(link)
     title = page.at('.article-title').inner_text.strip
 
-    blog = Blog.create(company: "テクノロジーズ", title: title, url: link)
+    Blog.create(company: "テクノロジーズ", title: title, url: link)
   end
 
   # 住まいカンパニー
   def self.sumai_company
     links = []
     agent = Mechanize.new
-    current_page = agent.get("http://tech.recruit-sumai.co.jp/")
+    current_page = agent.get("http://tech.recruit-sumai.co.jp")
     elements = current_page.search('.entry-title a')
     elements.each do |ele|
       links << ele.get_attribute('href')
@@ -88,31 +88,31 @@ class Scraping
     page = agent.get(link)
     title = page.at('.bookmark').inner_text.strip
 
-    blog = Blog.create(company: "住まいカンパニー", title: title, url: link)
+    Blog.create(company: "住まいカンパニー", title: title, url: link)
   end
 
   # ジョブス
-  # def self.jobs
-  #   links = []
-  #   agent = Mechanize.new
-  #   current_page = agent.get("https://techblog.recruitjobs.net/")
-  #   elements = current_page.search('.thumb-holder a')
-  #   elements.each do |ele|
-  #     links << ele.get_attribute('href')
-  #   end
+  def self.jobs
+    links = []
+    agent = Mechanize.new
+    current_page = agent.get("https://techblog.recruitjobs.net")
+    elements = current_page.search('.thumb-holder a')
+    elements.each do |ele|
+      links << ele.get_attribute('href')
+    end
     
-  #   links.each do |link|
-  #     get_jobs(link)
-  #   end
-  # end
+    links.each do |link|
+      get_jobs(link)
+    end
+  end
 
-  # def self.get_jobs(link)
-  #   agent = Mechanize.new
-  #   page = agent.get(link)
-  #   title = page.at('.h1-wrapper').inner_text.strip
+  def self.get_jobs(link)
+    agent = Mechanize.new
+    page = agent.get(link)
+    # title = page.at('.h1-wrapper').inner_text.strip
 
-  #   blog = Blog.create(company: "ジョブズ", title: title, url: link)
-  # end
+    Blog.create(company: "ジョブズ", url: link)
+  end
 
 
 
