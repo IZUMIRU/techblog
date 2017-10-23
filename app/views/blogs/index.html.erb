@@ -1,22 +1,24 @@
 <div class='hero'></div>
 <div class='content__inner'>
   <div class='content__main'>
-
-    <% @blogs.each do |blog| %>
-      <div class='content__bg'>
-        <div class='change-with-device'>
-          <div class='change-with-device__pc'>
-            <a href= <%= blog.url %> target="blank" %>
-              <%= blog.postday %><br />
-              <%= blog.title %><br />
-              <%= image_tag blog.image, width: "100px" %>
+    <div class='content__bg'>
+      <ul class='recommend list'>
+        <% @blogs.each do |blog| %>
+          <li class='recommend__item'>
+            <a href=<%= blog.url %> class='recommend__inner'>
+              <p class='company'><%= blog.company %></p><br />
+              <%= blog.postday %>
+              <h3 class='recommend__heading'><%= blog.title %></h3>
+              <div class='recommend__information'>
+                <div class='recommend__thumbnail'>
+                  <%= image_tag blog.image %>
+                </div>
+              </div>
             </a>
-          </div>
-          <div class='change-with-device__sp'>
-          </div>
-        </div>
-      </div>
-    <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
     <div class='pager'>
       <div class='pager__pager'>
         <%= paginate(@blogs) %>

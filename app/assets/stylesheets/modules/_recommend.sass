@@ -1,0 +1,86 @@
+.recommend
+  width: 100%
+  margin-top: 15px
+
+  @include clearfix
+
+.recommend__item
+  float: left
+  width: 50%
+  margin-bottom: 15px
+
+  @include respond-to(sp)
+    float: none
+    width: 100%
+    margin-bottom: 15px
+
+  &:nth-child(odd)
+    padding-right: 7px
+
+    @include respond-to(sp)
+      padding-right: 0
+
+  &:nth-child(even)
+    padding-left: 7px
+
+    @include respond-to(sp)
+      padding-left: 0
+
+a:link.recommend__inner,
+a:visited.recommend__inner
+  display: block
+  background: white
+  border: 2px solid grey
+  padding: 15px
+  height: 525px
+
+a:hover.recommend__inner
+  display: block
+  background: white
+  border: 2px solid lighten($main,20%)
+  padding: 15px
+
+.recommend__heading
+  color: $main
+  font-size: 18px
+  margin: 0 0 15px
+
+.recommend__information
+  width: 100%
+
+  @include clearfix
+
+.recommend__thumbnail
+  float: left
+  width: 37%
+  margin-right: 3%
+
+.recommend__thumbnail > img
+  width: 270%
+
+.recommend__information-list
+  float: left
+  width: 60%
+
+.recommend__table-heading
+  width: 35%
+
+  &::after
+    content: '：'
+    font-weight: bold
+
+.recommend__table-body
+  width: 65%
+.recommend__table-heading,
+.recommend__table-body
+  font-size: 11px
+  vertical-align: top
+  line-height: 1.2
+  padding: 5px 0
+
+  @include respond-to(sp)
+    font-size: 12px
+
+.recommend__text
+  margin: 20px 0 0
+  line-height: 1.4
