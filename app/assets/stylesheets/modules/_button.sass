@@ -1,0 +1,142 @@
+a:link.button,
+a:visited.button,
+button.button,
+input.button,
+.button
+  display: block
+  width: 100%
+  text-align: center
+  font-size: 1em
+  font-weight: bold
+  color: white
+  border: 1px solid $main
+  @include gradient(lighten($main, 5%), $main, vertical)
+  border-radius: 3px
+  cursor: pointer
+  padding: 10px
+
+a:hover.button,
+button:hover.button,
+input:hover.button
+  text-shadow: 0 0 5px lighten($main,20%),0 0 10px lighten($main,20%)
+  @include gradient($main,$main, vertical)
+
+.button_search
+  font-size: 1.3em
+  &:before
+    font-family: 'FontAwesome'
+    content : '\f002'
+    margin-right: 5px
+
+  @include respond-to(sp)
+    font-size: 1.1em
+
+.button_entry
+  &:before
+    font-family: 'FontAwesome'
+    content : '\f007'
+    margin-right: 5px
+
+a:link.button_login,
+a:visited.button_login
+  color: black
+  border: 1px solid $border-color
+  background: $background-color
+
+  &:before
+    font-family: 'FontAwesome'
+    content : '\f090'
+    margin-right: 5px
+
+a:hover.button_login
+  text-shadow: 0 0 10px #fff,0 0 15px #fff
+  background: darken($background-color,15%)
+
+  &:before
+    font-family: 'FontAwesome'
+    content : '\f090'
+    margin-right: 5px
+
+a:link.button_system,
+a:visited.button_system
+  border: 1px solid #b3b2b2
+  @include gradient(#b9b9b9, #b5b5b5, vertical)
+
+  @include respond-to(sp)
+    font-size: 0.8em
+
+a:hover.button_system
+  @include gradient(#b5b5b5, #b9b9b9, vertical)
+  text-shadow: 0 0 5px #a0a0a0,0 0 10px #a0a0a0
+
+a:link.button_logout,
+a:visited.button_logout
+  border: 1px solid #656565
+  @include gradient(#797979, #4e4e4e, vertical)
+
+  @include respond-to(sp)
+    font-size: 0.8em
+
+a:hover.button_logout
+  color: #eaeaea
+  @include gradient(#6b6a6a, #4e4e4e, vertical)
+  text-shadow: 0 0 5px #333,0 0 10px #333
+
+  @include respond-to(sp)
+    font-size: 0.8em
+
+.button_system,
+.button_logout
+  @include respond-to(sp)
+    font-size: 0.8em
+    margin-top: 10px
+
+a:link.button_sp-header,
+a:visited.button_sp-header,
+a:hover.button_sp-header
+  @include respond-to(sp)
+    height: 60px
+    background: none
+    border: none
+    font-size: 9px
+    color: black
+    border-radius: none
+    padding: 40px 5px 0
+
+.button_regist
+  font-size: 1.5em
+
+a:link.button_detail,
+a:visited.button_detail,
+button.button_detail,
+input.button_detail,
+.button_detail
+  color: $main
+  @include gradient(white, lighten($main, 33%), vertical)
+
+a:hover.button_detail,
+button:hover.button_detail,
+input:hover.button_detail
+  text-shadow: 0 0 5px lighten(white,20%),0 0 10px lighten(white,20%)
+  @include gradient(lighten($main, 33%), white, vertical)
+
+button.button_add-terms,
+button:hover.button_add-terms
+  &:before
+    font-family: 'FontAwesome'
+    content : '\f055'
+    margin-right: 5px
+
+.button_hover
+  display: block
+  width: 100%
+  text-align: center
+  font-size: 1em
+  font-weight: bold
+  color: white
+  border: 1px solid $main
+  @include gradient($main,$main, vertical)
+  text-shadow: 0 0 5px lighten($main,20%),0 0 10px lighten($main,20%)
+  border-radius: 3px
+  cursor: pointer
+  padding: 10px

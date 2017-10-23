@@ -1,0 +1,12 @@
+.change-with-device
+
+.change-with-device__sp,
+.change-with-device__tab
+  display: block
+  @include respond-to(pc)
+    display: none
+
+.change-with-device__pc
+  display: none
+  @include respond-to(pc)
+    display: block

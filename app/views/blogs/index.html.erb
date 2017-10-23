@@ -1,14 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class='hero'></div>
+<div class='content__inner'>
+  <div class='content__main'>
 
-<h1>TechBlogsまとめ</h1>
-
-<table>
-  <tbody>
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><a href=<%= blog.url %> target="blank"><%= image_tag blog.image.thumb.url %></a></td>
-        <td><%= blog.title %></td> 
-      </tr>
+      <div class='content__bg'>
+        <div class='change-with-device'>
+          <div class='change-with-device__pc'>
+            <a href= <%= blog.url %> target="blank" %>
+              <%= blog.postday %><br />
+              <%= blog.title %><br />
+              <%= image_tag blog.image, width: "100px" %>
+            </a>
+          </div>
+          <div class='change-with-device__sp'>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+    <div class='pager'>
+      <div class='pager__pager'>
+        <%= paginate(@blogs) %>
+      </div>
+    </div>
+  </div>

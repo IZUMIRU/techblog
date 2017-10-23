@@ -1,0 +1,21 @@
+.breadcrumbs
+  width: 1024px
+  color: $main
+  margin: 0 auto
+  padding: 10px 0
+
+  @include respond-to(sp)
+    width: 100%
+    font-size: 12px
+    padding: 15px
+
+.breadcrumbs a:link,
+.breadcrumbs a:visited,
+.breadcrumbs span
+  display: inline-block
+  color: $main
+  padding: 3px
+
+.breadcrumbs a:hover
+  background: lighten($main, 33%)
+  border-radius: 3px

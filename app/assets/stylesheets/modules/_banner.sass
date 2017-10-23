@@ -1,0 +1,21 @@
+.banner
+  width: 100%
+
+  @include clearfix
+
+.banner__item
+  margin-bottom: 10px
+  @include respond-to(sp)
+    width: 50%
+    float: left
+    margin-bottom: 0
+    padding: 10px
+
+.banner__image
+  width: 100%
+
+a > .banner__image
+  transition: opacity .3s ease-out
+
+a:hover > .banner__image
+  opacity: 0.7

@@ -16,6 +16,8 @@ gem 'rmagick'
 gem "dotenv-rails"
 gem 'devise'
 gem 'mechanize'
+gem 'bootstrap-material-design', '0.1.4'
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

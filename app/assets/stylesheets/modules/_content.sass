@@ -1,0 +1,146 @@
+.content
+  padding-top: 80px
+
+  @include respond-to(sp)
+    padding-top: 60px
+
+.content__inner
+  width: 1024px
+  margin: 0 auto
+
+  @include clearfix
+
+  @include respond-to(sp)
+    width: 100%
+
+.content__inner_admin,
+.content__inner_users,
+.content__main_admin,
+.content__main_users
+  margin-bottom: 40px
+
+  @include respond-to(sp)
+    margin-bottom: 20px
+
+.content__inner_mail-setting
+  margin-bottom: 120px
+
+  @include respond-to(sp)
+    margin-bottom: 20px
+
+
+.content__inner_no-breadcrumbs
+  padding-top: 20px
+
+  @include respond-to(sp)
+    padding-top: 15px
+
+.content__main
+  width: 80%
+  float: left
+  padding: 15px
+
+  @include respond-to(sp)
+    width: 100%
+    float: none
+    padding: 15px 0
+
+.content__sidebar
+  width: 20%
+  float: right
+  padding: 15px
+
+  @include respond-to(sp)
+    width: 100%
+    float: none
+
+.content__bg
+  background: $background-color
+  padding: 20px
+  margin-bottom: 20px
+
+  @include respond-to(sp)
+    background: none
+    padding: 15px
+    margin-bottom: 10px
+
+.content__bg_pink
+  background: $background-pink-color
+  padding: 15px
+
+.content__bg_blue
+  background: $background-blue-color
+  padding: 15px
+  margin-bottom: 20px
+
+.content__sp-padding
+  @include respond-to(sp)
+    padding: 0 15px
+
+.content__sp-padding-all
+  @include respond-to(sp)
+    padding: 15px
+    
+.content__heading
+  background: image-url("icon-tooth.png") no-repeat
+  background-size: 30px 36px
+  line-height: 36px
+  font-size: 1.4em
+  margin: 0
+  padding-left: 40px
+
+  @include respond-to(sp)
+    background-size: 22px 26px
+    line-height: 26px
+    font-size: 1.2em
+    padding-left: 30px
+
+.content__heading_abouts
+  text-align: center
+  background: none
+  margin: 30px 0 20px
+  padding-left: 0
+
+  @include respond-to(sp)
+    margin: 10px 0
+
+  &::before
+    content: ''
+    display: block
+    width: 30px
+    height: 36px
+    background: image-url("icon-tooth.png") no-repeat
+    background-size: contain
+    margin: 0 auto 5px
+
+  &::after
+    content: ""
+    display: block
+    background: $main
+    width: 80px
+    height: 1px
+    margin: 5px auto
+
+.content__heading_message
+  margin-bottom: 20px
+
+.content__button-area
+  width: 80%
+  margin: 20px auto 0
+
+  @include respond-to(sp)
+    width: 100%
+    margin: 0
+    padding: 15px 0
+
+.content__button-area_hero
+  margin: 20px auto
+
+  @include respond-to(sp)
+    margin: 0 auto
+    padding: 0 0 15px
+
+.content__page-link
+  display: inline-block
+  margin-top: -100px
+  padding-top: 100px

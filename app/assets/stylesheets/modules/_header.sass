@@ -1,0 +1,77 @@
+.header
+  position: fixed
+  right: 0
+  left: 0
+  z-index: 1030
+  width: 100%
+  height: 80px
+  background: white
+  border-top: 2px solid $main
+  border-bottom: 1px solid $border-color
+  padding: 15px 0
+
+  @include respond-to(sp)
+    height: 65px
+    padding: 0
+
+.header__inner
+  margin: 0 auto
+
+  @include respond-to(pc)
+    width: 1024px
+
+.header__logo
+  display: inline-block
+  width: 20%
+  float: left
+  margin-right: 10px
+
+  @include respond-to(sp)
+    width: 50%
+    padding: 12px 0
+    margin-right: 0
+
+.header__logo-images
+  display: block
+  width: 100%
+
+.header__text h1
+  float: left
+  font-size: .6em
+  color: #777
+  line-height: 1.4
+  margin-top: 8px
+
+.header__button-area
+  width: 30%
+  float: right
+
+  @include respond-to(sp)
+    width: 50%
+
+.header__button-item
+  width: 50%
+  padding: 0 2px
+
+  @include respond-to(sp)
+    position: relative
+
+.header__button-icon
+  @include respond-to(sp)
+    position: absolute
+    z-index: 1000
+    top: 8px
+    left: 35%
+    font-size: 20px
+
+.header__button-icon > i.fa:before
+  font-family: 'FontAwesome'
+  padding-left: 5px
+
+.header__button-item_system
+  @include respond-to(sp)
+    width: 45%
+
+.header__button-item_logout
+  @include respond-to(sp)
+    width: 55%

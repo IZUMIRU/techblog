@@ -1,0 +1,45 @@
+.information
+  background: #efefef
+
+.information__inner
+  display: table
+  width: 1024px
+  margin: 0 auto
+  padding: 15px
+
+  @include respond-to(sp)
+    width: 100%
+    padding: 15px 15px 0 15px
+
+.information__icon
+  display: table-cell
+  vertical-align: middle
+  width: 17%
+  padding-right: 3%
+
+  @include respond-to(sp)
+    display: block
+    width: 100%
+    float: none
+    text-align: center
+    margin-bottom: 20px
+    padding-right: 0
+
+.information__text
+  display: table-cell
+  vertical-align: middle
+  width: 80%
+  font-size: 1.3rem
+  margin: 0
+
+  @include respond-to(sp)
+    display: block
+    width: 100%
+    float: none
+    font-size: 1.1rem
+
+.information__image
+  width: 100%
+
+  @include respond-to(sp)
+    width: 25%

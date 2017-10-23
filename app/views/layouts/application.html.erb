@@ -1,14 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title>Techblog</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%#= render partial: 'layouts/metatags' %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" media="all" href="/assets/stylesheets/bootstrap_and_overrides.css" data-turbolinks-track="true" />
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= favicon_link_tag('favicon.ico') %>
   </head>
-
   <body>
-    <%= yield %>
+    <%= render partial: 'common/header' %>
+
+    <div class="content">
+      <%= bootstrap_flash %>
+      <%= yield %>
+
+      <div class='content__sidebar'>
+        <ul class='banner list'>
+          <li class='banner__item'>
+            <a href='https://drjob.shikakara.jp/lp/' target="_blank">
+              <%= image_tag 'banner-skdr.png', :alt => '歯科医師のお仕事探しは「シカカラDr求人」へ', :class => 'banner__image' %>
+            </a>
+          </li>
+          <li class='banner__item'>
+            <a href='https://dhjob.shikakara.jp/' target="_blank">
+              <%= image_tag 'banner-skdh.png', :alt => '歯科衛生士のお仕事探しは「シカカラDH求人」へ', :class => 'banner__image' %>
+            </a>
+          </li>
+          <li class='banner__item'>
+            <a href='http://dhgakusei.shikakara.jp/' target="_blank">
+              <%= image_tag 'banner-skdhg.png', :alt => '学生の方への就職先紹介は「シカカラDH学生」へ', :class => 'banner__image' %>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class='information'>
+      <div class='information__inner'>
+        <div class='information__icon'>
+          <%= image_tag 'logo-t.png', :class => 'information__image' %>
+        </div>
+        <p class='information__text'>
+          「シカカラDS求人」は歯科助手、受付・事務、歯科事務長をはじめ、歯科技工士、栄養士、保育士など、歯科業界で働くスタッフの専門求人情報サイトです。給料、勤務時間や待遇などの情報はもちろん、具体的な仕事内容やスタッフ構成、職場の雰囲気がわかる写真など豊富な情報によって、自分にぴったり合う求人を見つけることができます。<br /><br />
+        </p>
+      </div>
+    </div>
+    <footer class='footer'>
+      <p class='footer__copyright'>© Glomouth Co., Ltd All Rights Reserved.</p>
+    </footer>
   </body>
 </html>

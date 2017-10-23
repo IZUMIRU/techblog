@@ -1,0 +1,16 @@
+$pc-screen: 992px
+$tab-screen: 769px
+$sp-screen: 768px
+
+@mixin respond-to($media-list...)
+  @if index($media-list, pc)
+    @media screen and (min-width: $pc-screen)
+      @content
+
+  @if index($media-list, tab)
+    @media screen and (min-width: $tab-screen)
+      @content
+
+  @if index($media-list, sp)
+    @media screen and (max-width: $sp-screen - 1)
+      @content

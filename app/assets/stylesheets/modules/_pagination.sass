@@ -1,0 +1,133 @@
+.pagination
+  display: inline-block
+  margin: 0
+
+  @include clearfix
+
+.pager__view-number,
+.pager__pager
+  float: left
+
+  @include respond-to(sp)
+    float: none
+    padding: 0 15px
+
+.pager__view-number
+  width: 35%
+
+  @include respond-to(sp)
+    width: 100%
+
+.pager__pager
+  width: 65%
+  text-align: right
+
+  @include respond-to(sp)
+    width: 100%
+    text-align: center
+    margin-top: 5px
+
+.pager__view-number p
+  color: #A19790
+  text-align: left
+  margin: 0
+  padding: 0
+
+  @include respond-to(sp)
+    text-align: center
+
+.pager__all-number
+  color: $main
+  font-weight: bold
+
+.page
+  text-align: center
+  margin-right: 2px
+
+.page a,
+.next a,
+.last a,
+.first a,
+.prev a
+  display: inline-block
+  vertical-align: middle
+  border-radius: 3px
+  padding: 3px 5px
+
+  @include respond-to(sp)
+    width: 30px
+    padding: 3px 0
+
+.page a:link,
+.page a:visited,
+.next a:link,
+.next a:visited,
+.last a:link,
+.last a:visited,
+.first a:link,
+.first a:visited,
+.prev a:link,
+.prev a:visited,
+.page a:hover,
+.next a:hover,
+.last a:hover,
+.first a:hover,
+.prev a:hover
+  color: $main
+
+  @include respond-to(sp)
+    border: 1px solid $main
+
+.page a:hover,
+.next a:hover,
+.last a:hover,
+.first a:hover,
+.prev a:hover
+  background: darken($background-color,5%)
+
+.pager__pager > .pagination > .current
+  display: inline-block
+  vertical-align: middle
+  color: black
+  background: darken($background-color,10%)
+  padding: 3px 10px
+  border-radius: 3px
+
+  @include respond-to(sp)
+    width: 30px
+    background: $main
+    border: 1px solid $main
+    color: white
+    padding: 3px 0
+
+.next a
+  &:before
+    margin-right: 3px
+
+    @include respond-to(sp)
+      display: none
+
+
+.pager .next>a
+  float: none
+
+.last a
+  &:before
+    margin-right: 3px
+
+    @include respond-to(sp)
+      display: none
+
+.first a
+  &:after
+    margin-left: 3px
+
+    @include respond-to(sp)
+      display: none
+
+.prev a
+  &:after
+    margin-left: 3px
+
+    @include respond-to(sp)
+      display: none

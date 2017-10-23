@@ -1,0 +1,87 @@
+.hero
+  background: image-url("hero.jpg") no-repeat
+  background-size: cover
+  min-height: 400px
+  padding-top: 100px
+
+  @include respond-to(sp)
+    position: relative
+    min-height: 250px
+    padding-top: 0
+
+.hero_abouts
+  background: image-url("hero_abouts.jpg") no-repeat
+  background-size: cover
+  font-size: 20px
+  min-height: 320px
+
+  @include respond-to(sp)
+    min-height: 150px
+    padding-top: 55px
+
+.hero__heading
+  font-size: 26px
+  text-align: center
+  color: white
+  margin-top: 30px
+
+  @include respond-to(sp)
+    font-size: 1em
+    margin-top: 0
+
+.hero__inner
+  width: 100%
+  float: right
+  background: rgba(0,0,0,0.6)
+  text-align: center
+  padding: 30px
+
+  @include respond-to(sp)
+    position: absolute
+    width: 100%
+    text-align: left
+    bottom: 0
+    padding: 15px 15px 0
+
+.hero__catch-copy
+  color: white
+  font-size: 1.8em
+  font-weight: bold
+
+  @include respond-to(sp)
+    display: none
+
+.hero__catch-copy-sp
+  display: none
+
+  @include respond-to(sp)
+    display: block
+    position: absolute
+    top: 30px
+    right: 20px
+    font-size: 1.1em
+    font-weight: bold
+    background: rgba(255,255,255,0.7)
+    padding: 10px
+
+.hero__select-area
+  width: 130px
+
+.hero__select-area,
+.hero__select-occupation
+  display: inline-block
+
+  @include respond-to(sp)
+    width: 42%
+
+.hero__multiplication
+  display: inline-block
+  height: 40px
+  color: white
+  line-height: 1
+  font-size: 30px
+  vertical-align: middle
+  padding: 5px 10px 0
+
+  @include respond-to(sp)
+    line-height: 20px
